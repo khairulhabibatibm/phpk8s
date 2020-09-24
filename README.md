@@ -30,5 +30,6 @@ This was originally created to test Amazon Elastic Container Service which is wh
 - Make sure you pushed docker `docker push repo/image:tags`
 - Connect with IBM Cloud using IBM Cloud CLI - try this [getting started](https://cloud.ibm.com/docs/cli/index.html)
 - Install kubectl from [here](https://kubernetes.io/id/docs/tasks/tools/install-kubectl/)
+- Modify image name on `php-deploy.yaml`
 - Create deployment and service --> `kubectl create -f php-deploy.yaml`
 - Create ingress --> `kubectl create -f ingress.yaml`
