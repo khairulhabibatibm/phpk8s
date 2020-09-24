@@ -1,0 +1,19 @@
+ apiVersion: networking.k8s.io/v1beta1
+ kind: Ingress
+ metadata:
+   name: myingressresource
+   annotations:
+    ingress.bluemix.net/rewrite-path: "serviceName=php-service rewrite=/"
+ spec:
+   tls:
+   - hosts:
+     - primasis-demo-cluster-fdeea28e4a34dee3e8b3354a9cbfc9f5-0000.jp-tok.containers.appdomain.cloud
+     secretName: primasis-demo-cluster-fdeea28e4a34dee3e8b3354a9cbfc9f5-0000
+   rules:
+   - host: primasis-demo-cluster-fdeea28e4a34dee3e8b3354a9cbfc9f5-0000.jp-tok.containers.appdomain.cloud
+     http:
+       paths:
+       - path: /app1
+         backend:
+           serviceName: php-service
+           servicePort: 80

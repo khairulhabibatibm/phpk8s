@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-deployment
+  labels:
+    app: myphp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myphp
+  template:
+    metadata:
+      labels:
+        app: myphp
+    spec:
+      containers:
+      - name: myphp
+        image: khairulhabib/phpsimple:1.1
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-service
+spec:
+  selector:
+    app: myphp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
