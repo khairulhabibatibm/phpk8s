@@ -16,11 +16,19 @@ Finally, docker copies everything in src/ inside this repository to the /var/www
 
  - Ensure you have Docker installed
  - `git clone` this repository
- - `sudo docker build -t docker-php-helloworld .` 
- - `sudo docker run -p 80:80 docker-php-helloworld`
+ - `docker build -t docker-php-helloworld .` 
+ - `docker run -p 80:80 docker-php-helloworld`
 
 # What You Should See
 
 ![Docker PHP App](https://image.ibb.co/cTxSf7/whale.png "Hello World")
 
 This was originally created to test Amazon Elastic Container Service which is why Moby Dock says "Hello ECS!"
+
+# Kubernetes Deploy
+
+- Make sure you pushed docker `docker push repo/image:tags`
+- Connect with IBM Cloud using IBM Cloud CLI - try this [getting started](https://cloud.ibm.com/docs/cli/index.html)
+- Install kubectl from [here](https://kubernetes.io/id/docs/tasks/tools/install-kubectl/)
+- Create deployment and service --> `kubectl create -f php-deploy.yaml`
+- Create ingress --> `kubectl create -f ingress.yaml`
